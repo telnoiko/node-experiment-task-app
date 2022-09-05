@@ -3,10 +3,7 @@ const { MongoClient, ObjectId} = require('mongodb')
 
 const connectionURL = 'mongodb://127.0.0.1:27017'
 const databaseName = 'task-manager'
-const objectId = new ObjectId()
-console.log(objectId.id.length)
-console.log(objectId.toHexString().length)
-console.log(objectId.getTimestamp())
+
 
 MongoClient.connect(connectionURL, { useNewUrlParser: true}, (error, client) => {
     if(error) {
@@ -47,15 +44,43 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true}, (error, client) => 
     //         completed: true
     //     },{
     //         description: 'push code to github',
-    //         completed: 'false'
+    //         completed: false
     //     },{
     //         description: 'clean up the code',
-    //         completed: 'false'
+    //         completed: false
     //     }
     // ], (error, result) => {
     //     if (error) {
     //         return console.log('Unable to insert tasks ')
     //     }
     //     console.log(result)
+    // })
+
+    // db.collection("users").findOne({ name: 'K', age: 1 }, (error, user) => {
+    //     if (error){
+    //         console.log('Unable to fetch user')
+    //     }
+    //     console.log(user)
+    // })
+
+    // db.collection("users").findOne({ _id: new ObjectId('6315be521465374d336e7ba2') }, (error, user) => {
+    //     if (error){
+    //         console.log('Unable to fetch user')
+    //     }
+    //     console.log(user)
+    // })
+
+    // db.collection("tasks").find({ completed: false }).toArray((error, users) => {
+    //     if (error){
+    //         console.log('Unable to fetch user')
+    //     }
+    //     console.log(users)
+    // })
+
+    // db.collection("tasks").countDocuments({completed: false}, (error, count) => {
+    //     if (error){
+    //         console.log('Unable to count users')
+    //     }
+    //     console.log(count)
     // })
 })
