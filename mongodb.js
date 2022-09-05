@@ -12,7 +12,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true}, (error, client) => 
 
     const db = client.db(databaseName)
 
-    // Create
+    // CREATE
     // db.collection('users').insertOne({
     //     name: 'K',
     //     location: 'Georgia'
@@ -56,6 +56,7 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true}, (error, client) => 
     //     console.log(result)
     // })
 
+    // READ
     // db.collection("users").findOne({ name: 'K', age: 1 }, (error, user) => {
     //     if (error){
     //         console.log('Unable to fetch user')
@@ -83,4 +84,25 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true}, (error, client) => 
     //     }
     //     console.log(count)
     // })
+
+    // UPDATE
+    // db.collection("users").updateOne({
+    //     _id: new ObjectId("63160f6ae2404a1269916af1")
+    // }, {
+    //     $set: {
+    //         name: 'J'
+    //     }
+    // })
+    // .then(result => console.log(result))
+    // .catch(error => console.log(error))
+
+    // db.collection("tasks").updateMany({
+    //     completed: false
+    // }, {
+    //     $set: {
+    //         completed: true 
+    //     }
+    // })
+    // .then(result => console.log(result))
+    // .catch(error => console.log(error))
 })
