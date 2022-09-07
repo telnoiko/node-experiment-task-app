@@ -1,1 +1,1 @@
-Playing around with Node and Mongo
+Playing around and polishing Node.JS skills
