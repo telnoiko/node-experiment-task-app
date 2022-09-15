@@ -1,1 +1,1 @@
-Playing around and polishing Node.JS skills
+A restfull application that provides task-management API.
