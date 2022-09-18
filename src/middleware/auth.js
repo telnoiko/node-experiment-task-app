@@ -11,6 +11,7 @@ const User = require('../models/user')
             throw new Error()
         }
         req.user = user
+        req.token = token
         next()
     } catch (e) {
         resp.status(401).send({error: 'Unable to authenticate'})
