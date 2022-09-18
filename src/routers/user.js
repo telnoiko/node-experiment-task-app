@@ -7,21 +7,7 @@ router.get('/users/me', auth, async (req, res) => {
     res.send(req.user)
 })
 
-router.get('/users/:id', auth, async (req, res) => {
-    const _id = req.params.id
-    try {
-        const user = await User.findById(_id)        
-        if(!user) {
-            return res.status(404).send()
-        }
-
-        res.send(user)
-    } catch (e) {
-        res.status(500).send(e)
-    }
-})
-
-router.patch('/users/:id', auth, async (req, res) => {
+router.patch('/users/me', auth, async (req, res) => {
     const allowedUpdates = ['name', 'email', 'password', 'age']
     const updates = Object.keys(req.body)
     const isValid = updates.every(update => allowedUpdates.includes(update))
@@ -31,16 +17,9 @@ router.patch('/users/:id', auth, async (req, res) => {
     }
 
     try {
-        const _id = req.params.id
-
-        const user = await User.findById(_id)
-        if(!user) {
-            return res.status(404).send()
-        }
-        updates.forEach(update => user[update] = req.body[update])
-        await user.save()
-
-        res.send(user)
+        updates.forEach(update => req.user[update] = req.body[update])
+        await req.user.save()
+        res.send(req.usser)
     } catch (e) {
         res.status(400).send(e)
     }
@@ -67,7 +46,6 @@ router.post('/users/logout', auth, async (req, res) => {
     }
 })
 
-
 router.post('/users/logoutAll', auth, async (req, res) => {
     try {
         req.user.tokens = []
@@ -90,17 +68,13 @@ router.post('/users', async (req, res) => {
     }
 })
 
-router.delete('/users/:id', auth, async(req, res) => {
-    const _id = req.params.id
+router.delete('/users/me', auth, async(req, res) => {
     try {
-        const user = await User.findByIdAndDelete(_id)
-
-        if(!user) {
-            return res.status(404).send()
-        }
-        return res.send(user)
+        await req.user.remove()
+        return res.send(req.user)
     } catch (e) {
         res.status(500).send(e)
     }
 })
+
 module.exports = router
