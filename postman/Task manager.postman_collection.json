@@ -243,7 +243,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tasks?completed=false",
+					"raw": "{{url}}/tasks?completed=false&limit=2&skip=1",
 					"host": [
 						"{{url}}"
 					],
@@ -254,6 +254,14 @@
 						{
 							"key": "completed",
 							"value": "false"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "skip",
+							"value": "1"
 						}
 					]
 				}
