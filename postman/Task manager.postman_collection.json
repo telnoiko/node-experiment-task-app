@@ -28,7 +28,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"G\",\n    \"email\": \"GffefjjG@example.com\",\n    \"password\": \"mango579!!\"\n}",
+					"raw": "{\n    \"name\": \"G2\",\n    \"email\": \"GffefjjaG@example.com\",\n    \"password\": \"manago579!!\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -96,13 +96,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/users/631c84cea53377efe36ac3a4",
+					"raw": "{{url}}/users/me",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"users",
-						"631c84cea53377efe36ac3a4"
+						"me"
 					]
 				}
 			},
@@ -173,7 +173,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"K\",\n    \"password\": \"testPass579!!\"\n}",
+					"raw": "{\n    \"name\": \"K\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -218,7 +218,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"description\": \"test endpoint\"\n} ",
+					"raw": "{\n    \"description\": \"test endpoint\",\n    \"completed\": true\n} ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -243,12 +243,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tasks",
+					"raw": "{{url}}/tasks?completed=false",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"tasks"
+					],
+					"query": [
+						{
+							"key": "completed",
+							"value": "false"
+						}
 					]
 				}
 			},
@@ -260,13 +266,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tasks/631f7eaaffc27ea334d4e402",
+					"raw": "{{url}}/tasks/some_id",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"tasks",
-						"631f7eaaffc27ea334d4e402"
+						"some_id"
 					]
 				}
 			},
@@ -287,13 +293,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/tasks/631c8a1e50422176da7add17",
+					"raw": "{{url}}/tasks/some_id",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"tasks",
-						"631c8a1e50422176da7add17"
+						"some_id"
 					]
 				}
 			},
@@ -305,13 +311,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tasks/631f7eaaffc27ea334d4e402",
+					"raw": "{{url}}/tasks/some_id",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"tasks",
-						"631f7eaaffc27ea334d4e402"
+						"some_id"
 					]
 				}
 			},
