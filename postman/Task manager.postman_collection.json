@@ -243,7 +243,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/tasks?completed=false&limit=2&skip=1",
+					"raw": "{{url}}/tasks?completed=false&sortBy=createdAt:desc&limit=1&skip=1",
 					"host": [
 						"{{url}}"
 					],
@@ -256,8 +256,12 @@
 							"value": "false"
 						},
 						{
+							"key": "sortBy",
+							"value": "createdAt:desc"
+						},
+						{
 							"key": "limit",
-							"value": "2"
+							"value": "1"
 						},
 						{
 							"key": "skip",
