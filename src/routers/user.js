@@ -1,4 +1,6 @@
 const express = require('express')
+const multer = require('multer')
+const upload = multer({ dest: 'avatars/' })
 const router = new express.Router()
 const auth = require('../middleware/auth')
 const User = require('../models/user')
@@ -75,6 +77,10 @@ router.delete('/users/me', auth, async(req, res) => {
     } catch (e) {
         res.status(500).send(e)
     }
+})
+
+router.post('/users/me/avatar', upload.single('avatar'), (req, res) => {
+    res.send(200)
 })
 
 module.exports = router
